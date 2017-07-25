@@ -1,3 +1,9 @@
 <h1>Create new User</h1>
 
+<% if @user.errors.any? %>
+  <% @user.errors.each do |attribute, message| %>
+    <p><%= attribute.capitalize %> <%= message %></p>
+  <% end %>
+<% end %>
+
 <%= render 'form', { user: @user } %>
