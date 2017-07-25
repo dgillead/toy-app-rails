@@ -1,0 +1,12 @@
+<%= form_for ([user, micro_post]) do |f| %>
+
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content, required: 'required' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
