@@ -1,2 +1,4 @@
 <p><%= @user.name %></p>
 <p><%= @user.email %></p>
+
+<%= link_to 'Delete this User', user_path(@user), method: :delete %>
