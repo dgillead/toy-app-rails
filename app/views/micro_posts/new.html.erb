@@ -1,3 +1,9 @@
 <h1>Create new Post</h1>
 
+<% if @micro_post.errors.any? %>
+  <% @micro_post.errors.each do |attribute, message| %>
+    <p><%= attribute.capitalize %> <%= message %></p>
+  <% end %>
+<% end %>
+
 <%= render 'form', { micro_post: @micro_post, user: @user } %>
