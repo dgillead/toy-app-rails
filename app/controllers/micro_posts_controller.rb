@@ -1,6 +1,6 @@
 class MicroPostsController < ApplicationController
-  before_action :find_user, only: [:new, :create]
-  before_action :find_micro_post, only: [:show]
+  before_action :find_user, only: [:new, :create, :edit, :update]
+  before_action :find_micro_post, only: [:show, :edit, :update]
 
   def new
     @micro_post = @user.micro_posts.new
@@ -16,6 +16,17 @@ class MicroPostsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @micro_post.update_attributes(micro_post_params)
+      redirect_to user_micro_post_path(@user, @micro_post)
+    else
+      render :edit
+    end
   end
 
   private
