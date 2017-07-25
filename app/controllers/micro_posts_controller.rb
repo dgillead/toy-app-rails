@@ -1,6 +1,10 @@
 class MicroPostsController < ApplicationController
-  before_action :find_user, only: [:new, :create, :edit, :update]
-  before_action :find_micro_post, only: [:show, :edit, :update]
+  before_action :find_user, only: [:new, :create, :edit, :update, :destroy, :index]
+  before_action :find_micro_post, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @micro_posts = @user.micro_posts.all
+  end
 
   def new
     @micro_post = @user.micro_posts.new
@@ -27,6 +31,11 @@ class MicroPostsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @micro_post.destroy
+    redirect_to user_micro_posts_path(@user)
   end
 
   private

@@ -1,3 +1,5 @@
 <h1>Your Post</h1>
 
 <p><%= @micro_post.content %></p>
+
+<%= link_to 'Delete Post', user_micro_post_path, method: :delete %>

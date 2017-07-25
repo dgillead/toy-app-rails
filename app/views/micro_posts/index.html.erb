@@ -1,0 +1,23 @@
+<h1>Current Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <% @micro_posts.each do |micro_post| %>
+    <tr>
+      <td><%= micro_post.content %></td>
+      <td><%= link_to 'View Post', user_micro_post_path(@user, micro_post) %></td>
+      <td><%= link_to 'Edit Post', edit_user_micro_post_path(@user, micro_post) %></td>
+      <td><%= link_to 'Delete Post', user_micro_post_path(@user, micro_post), method: :delete, data: { confirm: 'Delete Post?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>
